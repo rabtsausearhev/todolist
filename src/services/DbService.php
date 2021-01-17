@@ -12,8 +12,15 @@ class DbService
     const DB_PASSWORD = 'DB_PASSWORD';
     const DB_DATABASE = 'DB_DATABASE';
 
+    /** @var PDO  $connection */
     private static $connection;
 
+    /**
+     * @return PDO
+     * @throws SecurityException
+     *
+     * take a database connection
+     */
     public static function getConnection(){
         if(!self::$connection){
             $securityJson = file_get_contents('../security.json');

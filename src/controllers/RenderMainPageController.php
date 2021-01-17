@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Models\TasksModel;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 use Twig\Loader\FilesystemLoader;
 
 class RenderMainPageController extends BaseController
@@ -12,6 +15,13 @@ class RenderMainPageController extends BaseController
     const DEFAULT_SORT_TYPE = 'createdAt';
     const DEFAULT_SORT_REVERS = 'ASC';
 
+    /**
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
+     *
+     * processing a home page request
+     */
     public static function renderMainPage()
     {
         $isAdmin = false;

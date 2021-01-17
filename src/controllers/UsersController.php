@@ -6,6 +6,9 @@ use App\Models\UsersModel;
 
 class UsersController extends BaseController
 {
+    /**
+     * processing an authentication request
+     */
     public static function login()
     {
         $username = $_REQUEST['username'];
@@ -23,6 +26,10 @@ class UsersController extends BaseController
         }
         echo json_encode(['code' => $code, 'message' => $message, 'cookies'=>$cookies]);
     }
+
+    /**
+     * processing a logout request
+     */
     public static function logout(){
         $cookies =  $_COOKIE['todoUser'];
         $usersModel = new UsersModel();

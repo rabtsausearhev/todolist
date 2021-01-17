@@ -7,14 +7,23 @@ use DateTime;
 
 class TasksController extends BaseController
 {
+    /** @var int - number of tasks per page */
     const PAGE_STEP = 3;
 
+    /** @var string  - the status of a task that is still in progress */
     const TASK_STATUS_PROCESS = "process";
+    /** @var string  - the status of a task that has already been completed */
     const TASK_STATUS_COMPLETED = "completed";
 
+    /** @var string - the status of the task that has not been edited */
     const TASK_EDITED_NO = '';
+    /** @var string - the status of the task that was edited */
     const TASK_EDITED_YES = 'edited';
 
+
+    /**
+     * processing a request to create a new task
+     */
     public static function createNewTask()
     {
         $email = (string)$_REQUEST['email'];
@@ -31,6 +40,13 @@ class TasksController extends BaseController
         echo json_encode(['code' => 0, 'message' => "Task was created."]);
     }
 
+    /**
+     * @param $pageNumber - desired page number
+     * @param $sortType - requested sort type
+     * @param $sortRevers - requested sort sequence
+     *
+     * processing a request for tasks that are within the sorting conditions
+     */
     public static function getTasksByPage($pageNumber, $sortType, $sortRevers)
     {
         $desiredPage = max($pageNumber - 1, 0);
@@ -48,6 +64,11 @@ class TasksController extends BaseController
         echo json_encode(['code' => 0, 'message' => 'success', 'tasks' => $tasks, 'pagesCount' => $pagesCount]);
     }
 
+    /**
+     * @param int $id - id tasks to delete
+     *
+     * processing a request to delete a task by ID
+     */
     public static function deleteTask(int $id)
     {
         if (self::userVerification()) {
@@ -59,6 +80,9 @@ class TasksController extends BaseController
         echo json_encode(['code' => -1]);
     }
 
+    /**
+     * processing a request to update text in task by ID
+     */
     public static function updateTaskText()
     {
         if (self::userVerification()) {
@@ -72,6 +96,9 @@ class TasksController extends BaseController
         echo json_encode(['code' => -1]);
     }
 
+    /**
+     * processing a request to assign a task the status "complete"
+     */
     public static function completedTask()
     {
         if (self::userVerification()) {
@@ -84,7 +111,13 @@ class TasksController extends BaseController
         echo json_encode(['code' => -1]);
     }
 
-    private static function getSortTypeByIndex($index)
+    /**
+     * @param int $index
+     * @return string
+     *
+     * selection of the sort type depending on the provided index
+     */
+    private static function getSortTypeByIndex(int $index)
     {
         switch ($index) {
             case 1:
