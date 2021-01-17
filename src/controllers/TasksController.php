@@ -99,7 +99,7 @@ class TasksController extends BaseController
     /**
      * processing a request to assign a task the status "complete"
      */
-    public static function completedTask()
+    public static function completedTask(): void
     {
         if (self::userVerification()) {
             $id = (int)$_REQUEST['id'];
@@ -117,7 +117,7 @@ class TasksController extends BaseController
      *
      * selection of the sort type depending on the provided index
      */
-    private static function getSortTypeByIndex(int $index)
+    private static function getSortTypeByIndex(int $index): string
     {
         switch ($index) {
             case 1:

@@ -9,7 +9,7 @@ class UsersController extends BaseController
     /**
      * processing an authentication request
      */
-    public static function login()
+    public static function login(): void
     {
         $username = $_REQUEST['username'];
         $password = $_REQUEST['password'];
@@ -19,19 +19,20 @@ class UsersController extends BaseController
         $usersModel = new UsersModel();
         $user = $usersModel->checkUserForLogin($username, $password);
         if ($user) {
-            $cookies = hash ( 'md5' , $user['username'] . $user['password'], false ) ;
+            $cookies = hash('md5', $user['username'] . $user['password'], false);
             $code = 0;
             $message = 'admin';
             $usersModel->setCookies($username, $cookies);
         }
-        echo json_encode(['code' => $code, 'message' => $message, 'cookies'=>$cookies]);
+        echo json_encode(['code' => $code, 'message' => $message, 'cookies' => $cookies]);
     }
 
     /**
      * processing a logout request
      */
-    public static function logout(){
-        $cookies =  $_COOKIE['todoUser'];
+    public static function logout()
+    {
+        $cookies = $_COOKIE['todoUser'];
         $usersModel = new UsersModel();
         $usersModel->removeCookiesForLogout($cookies);
         echo json_encode(['code' => 0]);

@@ -22,19 +22,19 @@ class RenderMainPageController extends BaseController
      *
      * processing a home page request
      */
-    public static function renderMainPage()
+    public static function renderMainPage(): void
     {
         $isAdmin = false;
         $role = 'unknown';
-        if(self::userVerification()){
-                $isAdmin = true;
-                $role = 'admin';
+        if (self::userVerification()) {
+            $isAdmin = true;
+            $role = 'admin';
         }
         $tasksModel = new TasksModel();
-        $tasks = $tasksModel->getTasksByPage(self::START_LIST, TasksController::PAGE_STEP, self::DEFAULT_SORT_TYPE,self::DEFAULT_SORT_REVERS);
+        $tasks = $tasksModel->getTasksByPage(self::START_LIST, TasksController::PAGE_STEP, self::DEFAULT_SORT_TYPE, self::DEFAULT_SORT_REVERS);
         $pagesCount = $tasksModel->getPagesCount();
         $loader = new FilesystemLoader('../templates');
         $twig = new Environment($loader);
-        echo $twig->render('main.twig', ['isAdmin' => $isAdmin, 'role' => $role, 'tasks' => $tasks,'pagesCount'=>$pagesCount]);
+        echo $twig->render('main.twig', ['isAdmin' => $isAdmin, 'role' => $role, 'tasks' => $tasks, 'pagesCount' => $pagesCount]);
     }
 }
