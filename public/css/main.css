@@ -1,0 +1,172 @@
+#task-list {
+    display: flex;
+    align-items: center;
+    border: #cdcdcd 1px solid;
+    border-radius: 10px;
+    height: fit-content;
+    max-height: 90%;
+    width: 70%;
+    max-width: 90%;
+    margin-top: 20px;
+    overflow: auto;
+    padding-bottom: 20px;
+    flex-direction: column;
+}
+
+.task {
+    height: 250px;
+    width: 90%;
+    margin-top: 20px;
+}
+
+.task-text {
+    max-height: 140px;
+    min-height: 140px;
+    width: 100%;
+}
+
+body {
+    height: calc(100% - 50px)
+}
+
+#control-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    right: 0;
+    top: 70px;
+    min-height: 80%;
+    max-height: 80%;
+    width: 60px;
+    border: #cdcdcd 1px solid;
+    border-radius: 10px 0 0 10px;
+    background: #f8f9fa;
+    z-index: 2;
+}
+
+#add_task {
+    color: white;
+}
+
+.control-btn {
+    margin-top: 20px;
+    size: 50px;
+}
+
+body {
+    min-width: 430px;
+}
+
+#login-error {
+    color: red;
+}
+
+#pagination_box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    left: 10px;
+    top: 70px;
+    min-height: 80%;
+    max-height: 80%;
+    width: 50px;
+    border: #cdcdcd 1px solid;
+    border-radius: 20px;
+    background: #f8f9fa;
+    overflow-y: auto;
+}
+
+.pag-page-btn {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    border: #cdcdcd 1px solid;
+    border-radius: 40px;
+    background: #cddcea;
+    color: white;
+}
+
+.selected-card {
+    box-shadow: 0 0 3px rgb(210, 207, 15);
+}
+
+.selected-page-btn{
+    box-shadow: 0 0 1px rgb(210, 207, 15);
+    color: rgb(210, 207, 15)
+}
+
+button{
+    outline: none !important;
+}
+
+#sort-panel{
+    background: #e8efef;
+    width: 50px;
+    height: 260px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+#sort-panel:hover:before {
+    position: absolute;
+    content: 'after setting select the page';
+    display: block;
+    background: white;
+    border-radius: 5px;
+    border: black 1px solid;
+    width: 170px;
+    left: -180px;
+    padding: 8px;
+}
+
+.sort-btn{
+    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+    margin-left: 5px;
+    font-size: 50%;
+    text-align: center;
+    padding: 0;
+    border-radius: 5px;
+    background: #c4c3c3;
+    color: white;
+    outline: none !important;
+    text-shadow: 0 0 1px black;
+    border: #a5a5a5 1px solid;
+}
+
+#sort-header{
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    background: #c4c3c3;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    font-size: 60%;
+    text-shadow: 0 0 1px black;
+}
+
+#sort-footer{
+    text-align: center;
+    width: 100%;
+    background: #c4c3c3;
+    color: white;
+    border-radius: 0 0 10px 10px;
+    font-size: 80%;
+    text-shadow: 0 0 1px black;
+}
+#sort-revers{
+    width: 20px;
+    height: 20px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.selected-sort{
+    box-shadow: 0 0 1px rgb(210, 207, 15);
+    color: rgb(234, 232, 137);
+    text-shadow: 0 0 1px black;
+}

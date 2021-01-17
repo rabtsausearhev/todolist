@@ -1,0 +1,31 @@
+<div id="create-task-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create New Task</h5>
+            </div>
+            <div class="modal-body">
+                <div id="new-task-msg"></div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="ntu-span">username</span>
+                    </div>
+                    <input id="new-task-username" type="text" class="form-control" placeholder="Username"
+                           aria-label="Username" aria-describedby="ntu-span">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="nte-span">e-mail</span>
+                    </div>
+                    <input id="new-task-email" type="email" class="form-control" placeholder="E-mail"
+                           aria-label="Username" aria-describedby="nte-span">
+                </div>
+                <label for="new-task-text">Text</label><textarea id="new-task-text" class="form-control"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button id="create-new-task-btn" type="button" class="btn btn-primary">create new</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

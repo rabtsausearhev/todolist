@@ -1,0 +1,22 @@
+{
+  "name": "searheyrabtsau/public",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Rabtsau Searhey",
+      "email": "rabtsevsearhey@gmail.com"
+    }
+  ],
+  "require": {
+    "twig/twig": "^3.2",
+    "ext-mysqli": "*",
+    "ext-pdo": "*",
+    "ext-json": "*",
+    "bramus/router": "~1.5"
+  },
+  "autoload": {
+    "classmap": [
+      "src"
+    ]
+  }
+}

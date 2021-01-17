@@ -1,0 +1,7 @@
+<div id="pagination_box">
+    {% if pagesCount != 0 %}
+        {% for i in 1..pagesCount %}
+            <button class="pag-page-btn">{{ i }}</button>
+        {% endfor %}
+    {% endif %}
+</div>

@@ -1,0 +1,20 @@
+<div class="card task">
+    <div class="d-flex justify-content-between align-item-center card-header">
+        <div class="task-id">{{ task.id }}</div>
+        <div class="task-status">{{ task.status|default('process') }}</div>
+        <div class="task-edited">{{ task.edited|default('') }}</div>
+        <div class="task-createAt">{{ task.createdAt }}</div>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-between">
+            <div>
+                <span>user: </span> <span class="task-userName"> {{ task.user }}</span>
+            </div>
+            <button class="btn btn-sm btn-success send-changes-btn" hidden>send changes</button>
+            <div>
+                <span>e-mail: </span> <span class="task-email">{{ task.email }}</span>
+            </div>
+        </div>
+        <textarea class="task-text form-control" disabled>{{ task.text }}</textarea>
+    </div>
+</div>
