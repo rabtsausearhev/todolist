@@ -23,7 +23,7 @@ try {
     $router->delete('/task/(\d+)', 'TasksController@deleteTask');
 
     $router->set404(function () {
-        echo file_get_contents("./templates/404.html");
+        echo file_get_contents("../templates/404.html");
     });
 
     $router->run();
