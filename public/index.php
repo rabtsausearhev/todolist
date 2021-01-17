@@ -11,20 +11,13 @@ try {
 
     $router->get('/', 'RenderMainPageController@renderMainPage');
     $router->get('/tasks/(\d+)/(\d+)/(\d+)', 'TasksController@getTasksByPage');
-
     $router->post('/task', 'TasksController@createNewTask');
-
     $router->post('/task/text', 'TasksController@updateTaskText');
     $router->post('/task/completed', 'TasksController@completedTask');
-
     $router->post('/login', 'UsersController@login');
     $router->post('/logout', 'UsersController@logout');
-
     $router->delete('/task/(\d+)', 'TasksController@deleteTask');
-
-    $router->set404(function () {
-        echo file_get_contents("../templates/404.html");
-    });
+    $router->set404('RenderErrorController@render404Error');
 
     $router->run();
 
